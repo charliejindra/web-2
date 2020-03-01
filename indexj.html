@@ -1,0 +1,20 @@
+<html>
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+</head>
+<body>
+Ajax demo (J)
+<div id="demo">this is replaceable text :O</div>
+<button type="button" id="changebutton" onclick="update()">change text! :)</button>
+</body>
+
+<script> 
+$(document).ready(function() {
+    $("#changebutton").click(function(){
+        document.getElementById("demo").innerHTML = "this is some text okay okay"
+        //$("#demo").text("fukcing brian is he even looking at thge text im writing no hes not")
+        $("#demo").load("sample.txt")
+    });
+});
+</script>
+</html>
