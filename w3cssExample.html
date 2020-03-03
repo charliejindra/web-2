@@ -1,0 +1,46 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+        <style>
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #f9f9f9;
+            min-width: 160px;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            padding: 12px 16px;
+            z-index: 1;
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+        </style>
+    </head>
+    <body>
+        <div class="w3-margin">
+            <h3>This is my example website.</h3>
+
+            <div class="w3-row" style="display: inline-block;">
+                <div class="w3-card w3-col w3-green w3-margin" style="width:200px; height:100px">This is a card for things and stuff</div>
+                <div class="w3-card w3-col w3-red w3-margin" style="width:200px; height:100px">This is another card for things and stuff</div>
+                <div class="w3-card w3-col w3-blue w3-button w3-margin" style="width:200px; height:100px">This is a button wowee</div>
+            </div>
+            
+            <div class="w3-row" style="display: inline-block;">
+                <div class="w3-card w3-col w3-black w3-margin" style="width:200px; height:100px">This is a card for things and stuff</div>
+                <div class="w3-card w3-col w3-green w3-margin" style="width:200px; height:100px">This is a card for things and stuff</div>
+                <div class="w3-card w3-col w3-green w3-margin" style="width:200px; height:100px">This is a card for things and stuff</div>
+            </div>
+            
+            <div class="dropdown">
+                <span>Mouse over me</span>
+                <div class="dropdown-content">
+                <p>Hello World!</p>
+                </div>
+              </div>
+            
+        </div>
+
+    </body>
+</html>
