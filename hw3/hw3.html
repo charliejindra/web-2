@@ -1,0 +1,46 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    </head>
+    <body>
+        <div id="thumbnails" class="w3-sidebar w3-margin w3-bar-block w3-light-grey" style="width:20%">
+        </div>
+        <div class="w3-panel w3-pale-green" style="margin-left:20%">
+            <div id="full-size-picture" class="w3-panel w3-pale-green" >
+            <h2></h2>
+        </div>
+    </body>
+    <script>
+        function format_thumbnail(key, val) {
+            img = '<img src="' + val + '" alt="' + key + '" style="width:100px; height:100px"/>';
+            caption = '<div class="w3-container w3-center"><p>' + key + '</p></div>';
+            card = '<div id="' + val + '" class="thumbnail w3-card-4 w3-margin" style="width:100px">' + img + caption + '</div>';
+            return card;
+        }
+        $(document).ready(function() {
+            $.getJSON("images.json", function(data) {
+                var items = [];
+                $.each( data, function( key, val ) {
+                    items.push(format_thumbnail(key, val));
+                });
+                html = items.join("")
+                $("#thumbnails").html(html)
+                $(".thumbnail").click( function() {
+                    id = $(this).attr("id")
+                    img = '<img src="' + id + '" alt="'+id+'" style="width:40%"/>';
+                    description = "";
+                    if (id == 'https://upload.wikimedia.org/wikipedia/en/6/60/Teens_of_Denial_Car_Seat_Headrest.jpg'){
+                        description = "<ul><li>Name: Teens Of Denial</li><li>Artist: Car Seat Headrest</li></ul>"
+                    } else if (id == 'https://images-na.ssl-images-amazon.com/images/I/71Mgt%2Bqd75L._SL1425_.jpg'){
+                        description = "<ul><li>Name: Kintsugi</li><li>Artist: Death Cab For Cutie</li></ul>"
+                    } else if (id == 'https://upload.wikimedia.org/wikipedia/en/thumb/2/2e/In_Rainbows_Official_Cover.jpg/220px-In_Rainbows_Official_Cover.jpg'){
+                        description = "<ul><li>Name: In Rainbows</li><li>Artist: Radiohead</li></ul>"
+                    }
+                    $("#full-size-picture").html('<img src="' + id + '" alt="'+id+'" style="width:40%"/>' + description);
+                    
+                });
+            });
+        });
+    </script>
+</html>
